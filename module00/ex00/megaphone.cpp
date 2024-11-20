@@ -6,24 +6,23 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:02:31 by aderison          #+#    #+#             */
-/*   Updated: 2024/11/19 20:02:48 by aderison         ###   ########.fr       */
+/*   Updated: 2024/11/20 04:02:14 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
+#include <string>
 
 void megaphone(int argc, char* argv[])
 {
-    int len = 0;
     int i = 0;
+    std::string word;
 
     while(++i < argc)
     {
-        len = strlen(argv[i]);
-
-        for(int j = 0; j < len; j++)
-            std::cout << (char)toupper(argv[i][j]);
+        word = argv[i];
+        for(std::string::size_type j = 0; j < word.size(); ++j)
+            std::cout << static_cast<char>(toupper(word[j]));
     }
 }
 

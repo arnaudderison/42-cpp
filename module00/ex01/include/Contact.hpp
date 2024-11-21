@@ -6,21 +6,21 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:04:50 by aderison          #+#    #+#             */
-/*   Updated: 2024/11/19 20:38:04 by aderison         ###   ########.fr       */
+/*   Updated: 2024/11/20 01:05:48 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma CONTACT_H
+#pragma once
 
-#include "repertory.hpp"
+#include "Repertory.hpp"
 
 class Contact {
     private:
-        str firstName;
-        str lasteName;
-        str nickname;
-        str phoneNumber;
-        str secret;
+        std::string firstName;
+        std::string lasteName;
+        std::string nickname;
+        std::string phoneNumber;
+        std::string secret;
         
     public:
         // constructeur/destructeur
@@ -28,16 +28,16 @@ class Contact {
         ~Contact();
         
         // Getter
-        str getFirstName();
-        str getLasteName();
-        str getNickname();
-        str getPhoneNumber();
-        str getSecret();
+        std::string getFirstName() const;
+        std::string getLasteName() const;
+        std::string getNickname() const;
+        std::string getPhoneNumber() const;
+        std::string getSecret() const;
 
         //Setter
-        void setFirstName(str firstName);
-        void setLasteName(str lasteName);
-        void setNickname(str nickname);
-        void setPhoneNumber(str phoneNumber);
-        void setSecret(str secret);   
-}
+        void setFirstName(std::string firstName);
+        void setLasteName(std::string lasteName);
+        void setNickname(std::string nickname);
+        void setPhoneNumber(std::string phoneNumber);
+        void setSecret(std::string secret);   
+};

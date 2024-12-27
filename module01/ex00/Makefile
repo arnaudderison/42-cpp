@@ -1,16 +1,17 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++98 -MD -MP -I./include
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MD -MP -I./include
 
 OBJ_DIR = obj
 INC_DIR = include
 
 SRCS = main.cpp \
-       phoneBook.cpp \
-       contact.cpp
+       newZombie.cpp \
+       randomChump.cpp \
+	   Zombie.cpp
 
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 DEPS = $(OBJS:.o=.d)
-EXEC = phonebook
+EXEC = brainz
 
 all: $(EXEC)
 

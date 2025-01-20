@@ -12,3 +12,4 @@ class HumanB {
     void setWeapon(Weapon& weapon);
     void attack();
 };
+

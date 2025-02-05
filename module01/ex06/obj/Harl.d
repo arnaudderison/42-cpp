@@ -1,5 +1,5 @@
-obj/randomChump.o: randomChump.cpp /usr/include/stdc-predef.h \
- include/Zombie.hpp /usr/include/c++/11/iostream \
+obj/Harl.o: Harl.cpp /usr/include/stdc-predef.h include/Harl.hpp \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -109,7 +109,7 @@ obj/randomChump.o: randomChump.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc
 /usr/include/stdc-predef.h:
-include/Zombie.hpp:
+include/Harl.hpp:
 /usr/include/c++/11/iostream:
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:

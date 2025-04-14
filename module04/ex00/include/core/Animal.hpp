@@ -7,6 +7,7 @@ class Animal
     std::string type;
   public:
     Animal();
+    Animal(const std::string &type);
     Animal(const Animal &src);
     virtual ~Animal();
     Animal &operator=(const Animal &rhs);

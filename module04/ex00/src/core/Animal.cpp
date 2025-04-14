@@ -6,6 +6,11 @@ Animal::Animal() : type("Animal") {
     std::cout << "Default Constructor called" << std::endl;
 }
 
+Animal::Animal(const std::string &type) : type(type) {
+    std::cout << YELLOW << "[INFO] " << RESET;
+    std::cout << "Constructor with type called" << std::endl;
+}
+
 Animal::Animal(const Animal &other) {
     std::cout << YELLOW << "[INFO] " << RESET;
     std::cout << "Constructor of copy called" << std::endl;

@@ -12,8 +12,10 @@ class Color {
         ~Color();
         Color(const Color& other);
         Color& operator=(const Color& other);
-        friend std::ostream& operator<<(std::ostream& os, const Color& c);
+        int getColor() const;
 };
+
+std::ostream& operator<<(std::ostream& os, const Color& c);
 
 const Color RESET(0);
 const Color RED(31);

@@ -8,7 +8,7 @@ OBJDIR = build
 SRC = $(shell find $(SRCDIR) -name "*.cpp")
 OBJ = $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 DEPS = $(OBJS:.o=.d)
-NAME = animal 
+NAME = prog 
 
 all: $(NAME)
 

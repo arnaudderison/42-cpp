@@ -1,19 +1,19 @@
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 #include "Color.hpp"
 
-Dog::Dog() : Animal("Dog") {
+WrongCat::WrongCat() : WrongAnimal("WrongCat") {
     std::cout << YELLOW << "[INFO] " << RESET;
     std::cout << "Default Constructor called" << std::endl;
-    this->type = "Dog";
+    this->type = "WrongCat";
 }
 
-Dog::Dog(const Dog &src) : Animal(src) {
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other) {
     std::cout << YELLOW << "[INFO] " << RESET;
     std::cout << "Constructor of copy called" << std::endl;
-    this->type = src.type;
+    this->type = other.type;
 }
 
-Dog &Dog::operator=(const Dog &other) {
+WrongCat &WrongCat::operator=(const WrongCat &other) {
     std::cout << YELLOW << "[INFO] " << RESET;
     std::cout << "Operator of assignment is called" << std::endl;
     if (this != &other) {
@@ -22,12 +22,14 @@ Dog &Dog::operator=(const Dog &other) {
     return *this;
 }
 
-Dog::~Dog() {
+WrongCat::~WrongCat() {
     std::cout << YELLOW << "[INFO] " << RESET;
     std::cout << "Destructor called" << std::endl;
 }
 
-void Dog::makeSound() const {
-    std::cout << YELLOW << "[INFO] " << RESET;
-    std::cout << "Woof Woof" << std::endl;
+void WrongCat::makeSound() const {
+    std::cout << YELLOW << "[INFO]: " << RESET;
+    std::cout << "WrongCat sound: ";
+    std::cout << "Meow Meow" << std::endl;
 }
+// WrongCat::makeSound() const {

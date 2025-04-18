@@ -6,13 +6,13 @@ class AMateria
 {
   protected:
     std::string _type;
-    AMateria();
     AMateria(std::string const & type);
     AMateria(const AMateria &other);
-    AMateria& operator=(const AMateria &other);
-
+    
   public:
     //constructor
+    AMateria();
+    AMateria& operator=(const AMateria &other);
 
     //Method
     std::string const & getType() const; //Returns the materia type

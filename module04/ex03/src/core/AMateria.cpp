@@ -2,7 +2,7 @@
 
 //contrutor
 AMateria::AMateria() {
-  std::cout << "Default constructor";
+  std::cout << "Default constructor AMateria";
 }
 
 AMateria::AMateria(const AMateria& other) {
@@ -31,5 +31,5 @@ const std::string& AMateria::getType(void) const {
 
 //Destructor
 AMateria::~AMateria() {
-  std::cout << "Default Destructor" << std::endl;
+  std::cout << "Default Destructor AMateria" << std::endl;
 }

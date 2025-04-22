@@ -2,7 +2,7 @@
 
 IMateriaSource::IMateriaSource(void)
 {
-	std::cout << "IMateriaSource object created with default constructor" << std::endl;
+	std::cout << "IMateriaSource default constructor" << std::endl;
 }
 
 IMateriaSource::IMateriaSource(IMateriaSource const &copy)
@@ -14,6 +14,6 @@ IMateriaSource::IMateriaSource(IMateriaSource const &copy)
 IMateriaSource const	&IMateriaSource::operator=(IMateriaSource const &copy)
 {
 	(void)copy;
-	std::cout << "IMateriaSource Assignment Operator Called" << std::endl;
+    std::cout << "IMateriaSource Assignment Operator Called" << std::endl;
 	return (*this);
 }

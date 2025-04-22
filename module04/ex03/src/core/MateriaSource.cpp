@@ -2,7 +2,7 @@
 
 MateriaSource::MateriaSource(void)
 {
-	std::cout << "MateriaSource created with default constructor" << std::endl;
+	std::cout << "MateriaSource default constructor" << std::endl;
 }
 
 MateriaSource::~MateriaSource(void)
@@ -43,7 +43,7 @@ void	MateriaSource::learnMateria(AMateria *materia)
 		}
 	}
 	if (materia)
-		std::cout << "Cannot learn materia, inventory for MateriaSource is full!" << std::endl;
+		std::cout << "Cannot learn materia inventory. MateriaSource is full!" << std::endl;
 	else
 		std::cout << "Cannot learn invalid materia" << std::endl;
     delete materia;

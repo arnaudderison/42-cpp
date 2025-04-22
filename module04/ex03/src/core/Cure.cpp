@@ -2,19 +2,19 @@
 
 //constructor
 Cure::Cure(): AMateria("cure") {
-    std::cout << "Default constructor in Cure Called" << std::endl;
+    std::cout << "Default constructor Cure" << std::endl;
 }
 
 Cure::Cure(const Cure& other)
 {
-    std::cout << "Cure copied 🧊" << std::endl;
+    std::cout << "Cure copied" << std::endl;
 }
 
 Cure& Cure::operator=(const Cure& other) {
     if(this != &other){
         this->_type = other._type;
     }
-    std::cout << "Ice assigned 🧊" << std::endl;
+    std::cout << "Cure assigned" << std::endl;
     return *this;
 }
 

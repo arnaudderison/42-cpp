@@ -2,7 +2,7 @@
 
 Character::Character(void): _name("default")
 {
-	std::cout << "Character created with default constructor" << std::endl;
+	std::cout << "Default constructor Character" << std::endl;
 }
 
 Character::Character(std::string const &name): _name(name), _inventory()
@@ -52,7 +52,7 @@ void	Character::equip(AMateria *m)
 		}
 	}
 	if (m)
-		std::cout << "Cannot equip materia, " << this->_name << "'s inventory is full!" << std::endl;
+		std::cout << "Cannot equip materia, " << this->_name << "'s inventory is full !" << std::endl;
 	else
 		std::cout << "Cannot equip invalid materia" << std::endl;
 	if (!this->inInventory(m))

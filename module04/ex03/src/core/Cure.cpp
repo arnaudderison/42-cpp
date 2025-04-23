@@ -5,9 +5,10 @@ Cure::Cure(): AMateria("cure") {
     std::cout << "Default constructor Cure" << std::endl;
 }
 
-Cure::Cure(const Cure& other)
+Cure::Cure(const Cure& other): AMateria(other)
 {
     std::cout << "Cure copied" << std::endl;
+    this->_type = other._type;
 }
 
 Cure& Cure::operator=(const Cure& other) {

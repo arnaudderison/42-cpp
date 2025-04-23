@@ -5,14 +5,14 @@ Ice::Ice(): AMateria("ice") {
     std::cout << "Default constructor in Ice Called" << std::endl;
 }
 
-Ice::Ice(const Ice& other)
+Ice::Ice(const Ice& other): AMateria(other)
 {
     std::cout << "Ice copied 🧊" << std::endl;
 }
 
 Ice& Ice::operator=(const Ice& other) {
     if(this != &other){
-        this->_type = other._type;
+      AMateria::operator=(other);
     }
     std::cout << "Ice assigned 🧊" << std::endl;
     return *this;

@@ -3,6 +3,9 @@
 MateriaSource::MateriaSource(void)
 {
 	std::cout << "MateriaSource default constructor" << std::endl;
+  for(int i = 0; i < 4; i++) {
+    this->_learnInventory[i] = NULL;
+  }
 }
 
 MateriaSource::~MateriaSource(void)
@@ -37,7 +40,7 @@ void	MateriaSource::learnMateria(AMateria *materia)
 	{
 		if (materia && this->_learnInventory[i] == NULL)
 		{
-            this->_learnInventory[i] = materia;
+      this->_learnInventory[i] = materia;
 			std::cout << "Materia " << this->_learnInventory[i]->getType() << " learned at index " << i << std::endl;
 			return ;
 		}

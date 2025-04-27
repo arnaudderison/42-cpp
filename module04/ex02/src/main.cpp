@@ -6,6 +6,7 @@
 #define ARRAY_SIZE 4
 
 int main() {
+
     std::cout << "\n=== [TEST BASIQUE POLYMORPHISME] ===\n";
     const Animal* j = new Dog();
     const Animal* i = new Cat();

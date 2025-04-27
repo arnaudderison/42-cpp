@@ -1,7 +1,11 @@
-# ✨ 42 C++ Modules — From 00 to 06
+# ✨ 42 C++ Modules — From 00 to 04
 
 Welcome to my curated collection of all C++ modules from **Module 00 to Module 06**, completed as part of the 42 curriculum.  
 This repository showcases my progress through object-oriented programming, inheritance, polymorphism, and more.
+
+score:
+
+![score](./.previews/score.png)
 
 ---
 
@@ -29,8 +33,6 @@ cpp_modules/
 ├── module02/
 ├── module03/
 ├── module04/
-├── module05/
-└── module06/
 ```
 
 ---

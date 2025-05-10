@@ -4,6 +4,9 @@
 #include <iostream>
 #include <exception>
 
+#define MAX_GRADE 150
+#define MIN_GRADE 1
+
 class Bureaucrat {
   private:
     const std::string _name;
@@ -16,8 +19,8 @@ class Bureaucrat {
     Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
     
-    //contructor
-    Bureaucrat(const std::name, int grade);
+    //constructor
+    Bureaucrat(const std::string& name, int grade);
 
     //getter
     const std::string& getName() const;
@@ -30,12 +33,12 @@ class Bureaucrat {
     class GradeTooHightException : public std::exception {
       public:
         virtual const char* what() const throw();
-    }
+    };
 
     class GradeTooLowException : public std::exception {
       public:
           virtual const char* what() const throw();
-    }
+    };
 };
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& b);

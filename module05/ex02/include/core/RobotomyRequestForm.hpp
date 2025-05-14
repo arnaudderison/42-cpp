@@ -3,8 +3,11 @@
 #include "AForm.hpp"
 #include <string>
 #include "Bureaucrat.hpp"
+#include <ostream>
 
-class RobotomyRequestForm : AForm {
+class AForm;
+
+class RobotomyRequestForm : public AForm {
     private:
         RobotomyRequestForm();
     public:

@@ -5,7 +5,9 @@
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequest", 72, 45, target) {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("RobotomyRequestForm", 72, 45, target) {
+    std::srand(std::time(NULL));
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other) {}
 
@@ -18,7 +20,6 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
     checkExecutability(executor);
 
     std::cout << "* drilling noise *" << std::endl;
-    std::srand(std::time(NULL));
     if(std::rand() % 2 == 0) {
         std::cout << "Target [" << getTarget() << "] has been rebotomised successfuly!" << std::endl;
     } else {

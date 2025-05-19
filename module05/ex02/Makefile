@@ -1,5 +1,5 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MD -MP -I./include/core/ -I./include/utils/
+CXXFLAGS = -g3 -Wall -Wextra -Werror -std=c++98 -MD -MP -I./include/core/ -I./include/utils/
 
 SRCDIR = src
 INCDIR = include

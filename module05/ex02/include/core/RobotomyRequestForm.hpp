@@ -17,4 +17,4 @@ class RobotomyRequestForm : public AForm {
         ~RobotomyRequestForm();
 
         void execute(const Bureaucrat& executor) const;
-}
+};

@@ -7,12 +7,13 @@
 class Bureaucrat;
 
 class AForm {
-private:
+protected:
     const std::string _name;
     bool _isSigned;
     const int _gradeToSigned;
     const int _gradeToExecute;
     const std::string _target;
+    AForm(const AForm& other);
 
 public:
     AForm();

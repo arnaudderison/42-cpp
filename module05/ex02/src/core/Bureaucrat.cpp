@@ -1,8 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Color.hpp"
 
-
-
 //canonic
 Bureaucrat::Bureaucrat(): _name("Unnamed"), _grade(MAX_GRADE) {
   std::cout << BLUE << "[DEBUG] " << RESET;

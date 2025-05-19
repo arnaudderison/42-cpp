@@ -5,11 +5,11 @@
 // ShrubberyCreationForm::ShrubberyCreationForm() {} //pas utile car il est en private
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target): AForm("ShrubberyForm", 145, 137, target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target): AForm("ShrubberyCreationForm", 145, 137, target) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
     if(this != &other) {
-        this-> _isSigned = other._isSigned;
+        this->_isSigned = other._isSigned;
     }   
     return *this;
 }
@@ -19,7 +19,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
    checkExecutability(executor);
 
-    std::ofstream out (getTarget() + "_shrubbery");
+    std::ofstream out ((getTarget() + "_shrubbery").c_str());
     out << "       _-_\n"
         << "    /~~   ~~\\\n"
         << " /~~         ~~\\\n"

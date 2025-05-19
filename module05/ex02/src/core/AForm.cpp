@@ -3,6 +3,14 @@
 
 //canonic
 
+AForm::AForm(const AForm& other)
+    : _name(other._name),
+      _isSigned(other._isSigned),
+      _gradeToSigned(other._gradeToSigned),
+      _gradeToExecute(other._gradeToExecute),
+      _target(other._target) 
+      {}
+
 AForm& AForm::operator=(const AForm& other) {
   if(this != &other) {
     this->_isSigned = other._isSigned;

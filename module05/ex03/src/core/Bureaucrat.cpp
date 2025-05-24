@@ -32,10 +32,10 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name) {
   std::cout << BLUE << "[DEBUG] " << RESET;
   std::cout << "Bureaucrat Constructor Called" << std::endl;
 
-  if(grade < MAX_GRADE)
-      throw GradeTooHighException();
-  if(grade > MIN_GRADE)
+  if(grade < MIN_GRADE)
       throw GradeTooLowException();
+  if(grade > MAX_GRADE)
+      throw GradeTooHighException();
 
   this->_grade = grade;
 }
@@ -70,6 +70,26 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low!";
 }
+
+void Bureaucrat::signForm(AForm& form) const {
+    try {
+        form.beSigned(*this);
+        std::cout << GREEN << "[SIGNED] " << RESET << _name << " signed " << form.getName() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << RED << "[FAILED] " << RESET << _name << " couldn’t sign " << form.getName()
+                  << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(const AForm& form) const {
+    try {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& b) {
   o << b.getName() << ", Bureaucrat grade " << b.getGrade() << ".";

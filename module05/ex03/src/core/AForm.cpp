@@ -61,6 +61,10 @@ const char* AForm::FormNotSignedException::what() const throw() {
     return "Form is not signed.";
 }
 
+const char* AForm::InvalidFormException::what() const throw() {
+    return "Intern try to create unknown form but failed";
+}
+
 std::ostream& operator<<(std::ostream& out, const AForm& f) {
     out << "Form " << f.getName() << " [sign grade: " << f.getGradeToSign()
         << ", exec grade: " << f.getGradeToExecute() << ", signed: " << f.getIsSigned() << "]";

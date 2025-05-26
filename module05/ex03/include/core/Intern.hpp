@@ -17,5 +17,5 @@ class Intern {
 
         Intern(const std::string name, const std::string target);
 
-        makeForm(const std::string name, const std::string target);
+        AForm* makeForm(const std::string name, const std::string target);
 };

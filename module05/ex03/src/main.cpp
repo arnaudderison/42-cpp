@@ -3,6 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void printHeader(const std::string& title) {
     std::cout << "\n=== " << title << " ===\n";
@@ -47,6 +48,20 @@ int main() {
 
     } catch (const std::exception& e) {
         std::cerr << "[Exception] " << e.what() << std::endl;
+    }
+
+    {
+        Intern someRandomIntern;
+        AForm* rrf;
+
+        try {
+            rrf = someRandomIntern.makeForm("PresidentialPardonForm", "Bender");
+            std::cout << "NAME OF RRF " << rrf->getName() << std::endl;
+            delete rrf;
+        } catch (const std::exception& e) {
+            std::cerr << "test: " << e.what() << std::endl;
+        }
+
     }
 
     return 0;

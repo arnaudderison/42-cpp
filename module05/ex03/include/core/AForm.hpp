@@ -43,6 +43,10 @@ public:
     class FormNotSignedException : public std::exception {
         const char* what() const throw();
     };
+
+    class InvalidFormException : public std::exception {
+        const char* what() const throw();
+    };
 };
 
 std::ostream& operator<<(std::ostream& out, const AForm& f);

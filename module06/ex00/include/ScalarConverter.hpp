@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <iostream>
+#include <ostream>
 
 class ScalarConverter {
     private:
@@ -10,5 +12,5 @@ class ScalarConverter {
         //cannonic
         ~ScalarConverter();
 
-        static void converter(std::string literal);
-}
+        static void converter(const std::string& literal);
+};

@@ -7,6 +7,8 @@
 class ScalarConverter {
     private:
         ScalarConverter();
+        ScalarConverter& operator=(const ScalarConverter& other);
+        ScalarConverter(const ScalarConverter& other);
 
     public:
         //cannonic

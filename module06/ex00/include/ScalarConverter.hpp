@@ -11,7 +11,6 @@ class ScalarConverter {
         ScalarConverter(const ScalarConverter& other);
 
     public:
-        //cannonic
         ~ScalarConverter();
 
         static void converter(const std::string& literal);

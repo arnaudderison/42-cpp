@@ -24,4 +24,3 @@ class Span {
         int longestSpan() const;
 
 };
-

@@ -13,6 +13,7 @@ int main() {
 
         std::cout << "longestSpan: "<< a.longestSpan() << std::endl;
         std::cout << "shortestSpan: "<< a.shortestSpan() << std::endl;
+        
     } catch(const std::exception& e) {
         std::cout << "Erreur: " << e.what() << std::endl;
     }

@@ -7,9 +7,10 @@ int main() {
 
         int arr[] = {1,2,3,4,5};
         std::vector<int> v(arr, arr + 5);
+        std::vector<int>::iterator ret;
     
-        easyfind(v, 6);
-        // std::cout << *test << std::endl;
+        ret = easyfind(v, 6);
+        std::cout << *ret << std::endl;
     } catch(const std::exception& e) {}
 
     return 0;

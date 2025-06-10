@@ -15,7 +15,7 @@ Span& Span::operator=(const Span& other) {
     return *this;
 }
 
-Span::Span(unsigned int N) {
+Span::Span(unsigned int N) : _store(), _maxSize(N){
     this->_store.reserve(N);
 }
 
@@ -25,16 +25,16 @@ void Span::addNumber(int number) {
     this->_store.push_back(number);
 }
 
-int Span::shortestSpan() const {
+long long Span::shortestSpan() const {
     std::vector<int> tmp(this->_store);
-    int min;
+    long min;
 
-    if(this->_store.size() == 1)
+    if(this->_store.size() <= 1)
         throw std::logic_error("shortestSpan: Only one number in the vector");
     
     std::sort(tmp.begin(), tmp.end());
 
-    min = tmp[2] - tmp[0];
+    min = tmp[1] - tmp[0];
     for(size_t i = 1; i < tmp.size(); i++) {
         if(tmp[i] - tmp[i - 1] < min)
             min = tmp[i] - tmp[i - 1];
@@ -43,7 +43,7 @@ int Span::shortestSpan() const {
     return min;
 }
 
-int Span::longestSpan() const {
+long long Span::longestSpan() const {
     std::vector<int> tmp(this->_store);
 
 	if (this->_store.size() <= 1)

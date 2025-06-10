@@ -3,8 +3,8 @@
 #include <stack>
 #include <iostream>
 
-template<typename T>
-class MutantStack : public std::stack<T> {
+template <typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container> {
     private:
     public:
         MutantStack();
@@ -19,8 +19,8 @@ class MutantStack : public std::stack<T> {
 
         iterator begin();
         iterator end();
-        iterator rbegin();
-        iterator rend();
+        reverse_iterator rbegin();
+        reverse_iterator rend();
 
 };
 

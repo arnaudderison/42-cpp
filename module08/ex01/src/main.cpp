@@ -1,15 +1,14 @@
 #include "Span.hpp"
+#include <climits>
 
 int main() {
-    Span a(5);
+    Span a(2);
 
     try{
-        a.addNumber(1);
-        a.addNumber(2);
-        a.addNumber(100);
-        a.addNumber(8);
-        a.addNumber(10);
-        // a.addNumber(1);
+        int arr[] = {INT_MIN, INT_MAX};
+
+        std::vector<int> v(arr, arr + 2);
+        a.addNumbers(v.begin(), v.end());
 
         std::cout << "longestSpan: "<< a.longestSpan() << std::endl;
         std::cout << "shortestSpan: "<< a.shortestSpan() << std::endl;

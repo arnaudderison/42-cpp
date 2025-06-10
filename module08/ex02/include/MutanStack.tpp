@@ -1,37 +1,37 @@
-#include "MutanStack.hpp"
+#include "MutantStack.hpp"
 
-template<typename T>
-MutantStack<T>::MutantStack() {}
+template<typename T, typename Container>
+MutantStack<T, Container>::MutantStack() {}
 
-template<typename T>
-MutantStack<T>::~MutantStack() {}
+template<typename T, typename Container>
+MutantStack<T, Container>::~MutantStack() {}
 
-template<typename T>
-MutantStack<T>::MutantStack(const MutantStack& other) : std::stack<T>(other) {}
+template<typename T, typename Container>
+MutantStack<T, Container>::MutantStack(const MutantStack& other) : std::stack<T>(other) {}
 
-template<typename T>
-MutantStack<T>& MutantStack<T>::operator=(const MutantStack& other) {
+template<typename T, typename Container>
+MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStack& other) {
     if (this != &other)
-        std::stack<T>::operator=(other);
+        std::stack<T, Container>::operator=(other);
     return *this;
 }
 
-template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::begin() {
+template<typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() {
     return this->c.begin();
 }
 
-template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::end() {
+template<typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
     return this->c.end();
 }
 
-template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::rbegin() {
+template<typename T, typename Container>
+typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::rbegin() {
     return this->c.rbegin();
 }
 
-template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::rend() {
+template<typename T, typename Container>
+typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::rend() {
     return this->c.rend();
 }

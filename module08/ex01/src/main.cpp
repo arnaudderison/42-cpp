@@ -2,12 +2,12 @@
 #include <climits>
 
 int main() {
-    Span a(2);
+    Span a(3);
 
     try{
-        int arr[] = {INT_MIN, INT_MAX};
+        int arr[] = {-15, -18, 0};
 
-        std::vector<int> v(arr, arr + 2);
+        std::vector<int> v(arr, arr + 3);
         a.addNumbers(v.begin(), v.end());
 
         std::cout << "longestSpan: "<< a.longestSpan() << std::endl;

@@ -25,7 +25,7 @@ void Span::addNumber(int number) {
     this->_store.push_back(number);
 }
 
-long long Span::shortestSpan() const {
+size_t Span::shortestSpan() const {
     std::vector<int> tmp(this->_store);
     long min;
 
@@ -43,7 +43,7 @@ long long Span::shortestSpan() const {
     return min;
 }
 
-long long Span::longestSpan() const {
+size_t Span::longestSpan() const {
     std::vector<int> tmp(this->_store);
 
 	if (this->_store.size() <= 1)

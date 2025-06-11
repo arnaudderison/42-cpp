@@ -27,7 +27,7 @@ class Span {
             _store.insert(_store.end(), begin, end);
         }
         void addNumber(int number);
-        long long shortestSpan() const;
-        long long longestSpan() const;
+        size_t shortestSpan() const;
+        size_t longestSpan() const;
 
 };

@@ -1,8 +1,5 @@
 #include "BitcoinExchange.hpp"
 
-
-
-
 static bool parseInt(const std::string& str, int& ret) {
     std::istringstream iss(str);
     iss >> ret;
@@ -17,13 +14,10 @@ bool isValideDate(std::string& date) {
     int year;
     int month;
     int day;
-    int daysInMonth[] = {21,28,31,30,31,30,31,31,30,31,30,31};
+    int daysInMonth[] = {31,28,31,30,31,30,31,31,30,31,30,31};
     
     if(date.length() != 10 || date[4] != '-' || date[7] != '-')
-    {
-        std::cout << "bad format" << date[4] << date[7] << date.length() << std::endl;
         return false;
-    }
     
     strYear = date.substr(0, 4);
     strMonth = date.substr(5, 2);
@@ -39,15 +33,6 @@ bool isValideDate(std::string& date) {
         
     return day <= daysInMonth[month - 1];
 }
-
-
-
-
-
-
-
-
-
 
 BitcoinExchange::BitcoinExchange() {}
 BitcoinExchange::~BitcoinExchange() {}
@@ -68,22 +53,12 @@ void BitcoinExchange::loadDatabase(const std::string& file) {
     if(!input)
         throw std::runtime_error("Error: could not open file.");
 
-    if(std::getline(input, line)) {
-        if(line != "date,exchange_rate") {
-            std::istringstream iss(line);
-
-            if(std::getline(iss, date, ',') && (iss >> rate)) {
-                _DataBase[date] = rate;
-            }
-        }
-    }
-
-    while(std::getline(input, line)) {
+    while (std::getline(input, line)) {
+        if (line == "date,exchange_rate")
+            continue;
         std::istringstream iss(line);
-
-        if(std::getline(iss, date, ',') && (iss >> rate)) {
+        if (std::getline(iss, date, ',') && (iss >> rate))
             _DataBase[date] = rate;
-        }
     }
 
     // printDataBase(this->_DataBase);
@@ -99,60 +74,58 @@ void BitcoinExchange::printDataBase(std::map<std::string, double>& Database) con
 void BitcoinExchange::parseInput(const std::string& file) {
     std::ifstream input(file.c_str());
     std::string line;
-    std::string date;
-    double value;
+    std::size_t pipe;
 
-    if(!input)
-        throw std::runtime_error("Error: coul not open file.");
-
-    if(std::getline(input, line)) {
-        if(line != "date | value") {
-            std::istringstream iss(line);
-
-            std::getline(iss, date, '|');
-            if (!(iss >> value)) {
-                std::cout << "Error: bad value" << std::endl;    
-            };
-            date.erase(date.find_last_not_of(" \n\r\t") + 1);
-
-            if(!isValideDate(date))
-                std::cout << "Error: bad input => " << date << std::endl;
-            else
-                std::cout << "Date: " << date << " Value: " << value << std::endl;
-        }
+    if (!input) {
+        std::cout << "Error: could not open file." << std::endl;
+        return;
     }
 
-    while(std::getline(input, line)) {
-        std::istringstream iss(line);
+    while (std::getline(input, line)) {
+        if (line == "date | value" || line.empty())
+            continue;
 
-        std::getline(iss, date, '|');
+        pipe = line.find('|');
+        if (pipe == std::string::npos) {
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
+        }
 
-        date.erase(date.find_last_not_of(" \n\r\t") + 1);
-        if(!isValideDate(date)) {
+        std::string date  = line.substr(0, pipe);
+        std::string valueStr = line.substr(pipe + 1);
+        date.erase(date.find_last_not_of(" \t\r\n") + 1);
+        valueStr.erase(0, valueStr.find_first_not_of(" \t\r\n"));
+
+        if (!isValideDate(date)) {
             std::cout << "Error: bad input => " << date << std::endl;
             continue;
         }
 
-        if(!(iss >> value)) {
+        double value;
+        std::istringstream iss(valueStr);
+        if (!(iss >> value) || !(iss >> std::ws).eof()) {
             std::cout << "Error: bad value" << std::endl;
             continue;
         }
-
-        if(value < 0) {
+        if (value < 0) {
             std::cout << "Error: not a positive number." << std::endl;
             continue;
         }
-
-        if(value > 1000) {
+        if (value > 1000) {
             std::cout << "Error: too large a number." << std::endl;
             continue;
         }
 
-        if(!this->_DataBase[date])
-            std::cout << "not found" << std::endl;
-        std::cout << date << " => " << value << " = " << value * this->_DataBase[date] << std::endl;
+        std::map<std::string, double>::const_iterator it = _DataBase.lower_bound(date);
+        if (it == _DataBase.end() || it->first != date) {
+            if (it == _DataBase.begin()) {
+                std::cout << "Error: bad input => " << date << std::endl;
+                continue;
+            }
+            --it;
+        }
 
-
+        std::cout << date << " => " << value << " = " << value * it->second << std::endl;
     }
 
     input.close();

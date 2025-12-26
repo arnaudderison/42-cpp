@@ -1,4 +1,4 @@
-NAME = RNP
+NAME = RPN
 SRC = ./src/RNP.cpp ./src/main.cpp 
 OBJ_DIR = obj
 OBJS = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

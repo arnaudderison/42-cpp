@@ -2,6 +2,8 @@
 
 #include <string>
 #include <iostream>
+#include <stack>
+#include <sstream>
 
 class RNP {
   public:
@@ -14,5 +16,6 @@ class RNP {
 
     private:
       bool isOperator(const char c) const;
+      void apllyOpe(std::stack<int>& stk, const char op);
 
 };

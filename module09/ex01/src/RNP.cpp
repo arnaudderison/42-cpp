@@ -5,6 +5,7 @@ RNP::~RNP() {}
 RNP::RNP(const RNP& other) {
     (void)other;
 }
+
 RNP& RNP::operator=(const RNP& other) {
     if (this != &other) {
         (void)other;
@@ -37,6 +38,7 @@ void RNP::apllyOpe(std::stack<int>& stk, const char op) {
     if (stk.size() < 2) {
         throw std::runtime_error("Error: insufficient values in expression.");
     }
+
     int b = stk.top(); stk.pop();
     int a = stk.top(); stk.pop();
     int result;

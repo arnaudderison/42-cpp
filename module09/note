@@ -1,0 +1,3 @@
+- Dans le dernier exo je dois remettre a la forme canonique
+- Le niom de la classe n est pas cinforne dans le premier exo
+- exo01 il manque  #include <cctype> pour std::isdigit/isspace (a verrfier)

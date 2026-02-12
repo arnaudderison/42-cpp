@@ -9,8 +9,16 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    btc.loadDatabase("./assets/data.csv");
-    btc.parseInput(argv[1]);
+    try
+    {
+        btc.loadDatabase("./assets/data.csv");
+        btc.parseInput(argv[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
     return 0;
 }
 
